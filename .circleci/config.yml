@@ -24,11 +24,7 @@ jobs:
     executor: ci-executor
     steps:
       - checkout
-
-      - run:
-          command: bundle exec htmlproofer ./_site --check-html
-          command: bundle install
-
+      
       - run:
           name: build the jekyll site
           command: bundle exec jekyll build
@@ -39,7 +35,7 @@ jobs:
 
       - run:
           name: run html proofer
-          command: REPLACE-ME-WITH-SCRIPT
+          command: bundle exec htmlproofer ./_site --check-html
 
       - run:
           name: notify test is finished
